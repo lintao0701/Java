@@ -1,68 +1,70 @@
 package tetris;
 
 /**
- * ËÄ¸ñ·½¿éÀà
+ * ï¿½Ä¸ñ·½¿ï¿½ï¿½ï¿½
  * @author Leslie Leung
  */
 public class Tetromino {
-	protected Cell[] cells;		//ÓÃ¶ÔÏóÊý×écells´æ´¢ËÄ¸ñ·½¿é
-	protected Cell axis;	//Ðý×ªÖá
-	protected Cell[] rotateCells;	//ÐèÒªÐý×ªµÄ¸ñ×Ó¼¯ºÏ
-	
+	// commit 1
+	// commit 2
+	// commit 3
+	protected Cell[] cells;		//ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cellsï¿½æ´¢ï¿½Ä¸ñ·½¿ï¿½
+	protected Cell axis;	//ï¿½ï¿½×ªï¿½ï¿½
+	protected Cell[] rotateCells;	//ï¿½ï¿½Òªï¿½ï¿½×ªï¿½Ä¸ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½
 	/**
-	 * ÊµÏÖËÄ¸ñ·½¿éÄæÊ±Õë×ªµÄËã·¨
-	 * @param axis Ðý×ªÖá£¬ÒÔcellsÖÐÏÂ±êÎª0µÄCellÎªÐý×ªÖá
-	 * @param rotateCells ÒªÐý×ªµÄ¸ñ×ÓµÄ¼¯ºÏ
+	 * Êµï¿½ï¿½ï¿½Ä¸ñ·½¿ï¿½ï¿½ï¿½Ê±ï¿½ï¿½×ªï¿½ï¿½ï¿½ã·¨
+	 * @param axis ï¿½ï¿½×ªï¿½á£¬ï¿½ï¿½cellsï¿½ï¿½ï¿½Â±ï¿½Îª0ï¿½ï¿½CellÎªï¿½ï¿½×ªï¿½ï¿½
+	 * @param rotateCells Òªï¿½ï¿½×ªï¿½Ä¸ï¿½ï¿½ÓµÄ¼ï¿½ï¿½ï¿½
 	 */
 	protected void anticlockwiseRotate(Cell axis, Cell[] rotateCells) {
-		int oldX;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellµÄºá×ø±ê
-		int oldY;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellµÄ×Ý×ø±ê
-		int newX;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellÐý×ªºóµÄºá×ø±ê
-		int newY;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellÐý×ªºóµÄ×Ý×ø±ê
+		int oldX;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+		int oldY;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		int newX;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½ï¿½×ªï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+		int newY;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		for(int i = 0; i < 3; i ++) {
 			oldX = rotateCells[i].getX();
 			oldY = rotateCells[i].getY();
 			
-			newX = axis.getX() - axis.getY() + oldY;	//ÐÂºá×ø±ê¼ÆËãËã·¨
-			newY = axis.getY() + axis.getX() - oldX;	//ÐÂ×Ý×ø±ê¼ÆËãËã·¨
+			newX = axis.getX() - axis.getY() + oldY;	//ï¿½Âºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨
+			newY = axis.getY() + axis.getX() - oldX;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨
 			
-			rotateCells[i].setX(newX);		//ÖØÐÂÉèÖÃÄ¿±ê¸ñ×ÓµÄºá×ø±ê
-			rotateCells[i].setY(newY);		//ÖØÐÂÉèÖÃÄ¿±ê¸ñ×ÓµÄ×Ý×ø±ê
+			rotateCells[i].setX(newX);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ÓµÄºï¿½ï¿½ï¿½ï¿½ï¿½
+			rotateCells[i].setY(newY);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 	
 	/**
-	 * ÊµÏÖËÄ¸ñ·½¿éË³Ê±Õë×ªµÄËã·¨
-	 * @param axis Ðý×ªÖá£¬ÒÔcellsÖÐÏÂ±êÎª0µÄCellÎªÐý×ªÖá
-	 * @param rotateCells ÒªÐý×ªµÄ¸ñ×ÓµÄ¼¯ºÏ
+	 * Êµï¿½ï¿½ï¿½Ä¸ñ·½¿ï¿½Ë³Ê±ï¿½ï¿½×ªï¿½ï¿½ï¿½ã·¨
+	 * @param axis ï¿½ï¿½×ªï¿½á£¬ï¿½ï¿½cellsï¿½ï¿½ï¿½Â±ï¿½Îª0ï¿½ï¿½CellÎªï¿½ï¿½×ªï¿½ï¿½
+	 * @param rotateCells Òªï¿½ï¿½×ªï¿½Ä¸ï¿½ï¿½ÓµÄ¼ï¿½ï¿½ï¿½
 	 */
 	protected void clockwiseRotate(Cell axis, Cell[] rotateCells) {
-		int oldX;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellµÄºá×ø±ê
-		int oldY;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellµÄ×Ý×ø±ê
-		int newX;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellÐý×ªºóµÄºá×ø±ê
-		int newY;	//ÓÃÒÔ±íÊ¾´«½øÀ´µÄrotateCellÐý×ªºóµÄ×Ý×ø±ê
+		int oldX;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+		int oldY;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		int newX;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½ï¿½×ªï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+		int newY;	//ï¿½ï¿½ï¿½Ô±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rotateCellï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		for(int i = 0; i < 3; i ++) {
 			oldX = rotateCells[i].getX();
 			oldY = rotateCells[i].getY();
 			
-			newX = axis.getX() - oldY + axis.getY();	//ÐÂºá×ø±ê¼ÆËãËã·¨
-			newY = axis.getY() + oldX - axis.getX();	//ÐÂ×Ý×ø±ê¼ÆËãËã·¨
+			newX = axis.getX() - oldY + axis.getY();	//ï¿½Âºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨
+			newY = axis.getY() + oldX - axis.getX();	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨
 			
-			rotateCells[i].setX(newX);		//ÖØÐÂÉèÖÃÄ¿±ê¸ñ×ÓµÄºá×ø±ê
-			rotateCells[i].setY(newY);		//ÖØÐÂÉèÖÃÄ¿±ê¸ñ×ÓµÄ×Ý×ø±ê
+			rotateCells[i].setX(newX);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ÓµÄºï¿½ï¿½ï¿½ï¿½ï¿½
+			rotateCells[i].setY(newY);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 	
 	/**
-	 * ÊµÏÖËÄ¸ñ·½¿éµÄ×Ô¶¯ÏÂÂä
+	 * Êµï¿½ï¿½ï¿½Ä¸ñ·½¿ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	protected void softDrop() {
-		int oldY;	//Ä³¸ö¸ñ×ÓÏÂÂäÇ°µÄ×Ý×ø±ê
-		int newY;	//Ä³¸ö¸ñ×ÓÏÂÂäºóµÄ×Ý×ø±ê
+		int oldY;	//Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		int newY;	//Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
-		/* ËùÓÐ¸ñ×ÓÏÂÒÆ */
+		/* ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 		for(int i = 0; i < cells.length; i ++) {
 			oldY = cells[i].getY();
 			newY = oldY + 1;
@@ -72,13 +74,13 @@ public class Tetromino {
 	}
 	
 	/**
-	 * ÊµÏÖËÄ¸ñ·½¿é×óÒÆµÄËã·¨
+	 * Êµï¿½ï¿½ï¿½Ä¸ñ·½¿ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ã·¨
 	 */
 	protected void moveLeft() {
-		int oldX;	//Ä³¸ö¸ñ×Ó×óÒÆÇ°µÄºá×ø±ê
-		int newX;	//Ä³¸ö¸ñ×Ó×óÒÆºóµÄºá×ø±ê
+		int oldX;	//Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+		int newX;	//Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
 		
-		/* ËùÓÐ¸ñ×Ó×óÒÆ */
+		/* ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 		for(int i = 0; i < cells.length; i ++) {
 			oldX = cells[i].getX();
 			newX = oldX - 1;
@@ -88,13 +90,13 @@ public class Tetromino {
 	}
 	
 	/**
-	 * ÊµÏÖËÄ¸ñ·½¿éÓÒÒÆµÄËã·¨
+	 * Êµï¿½ï¿½ï¿½Ä¸ñ·½¿ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ã·¨
 	 */
 	protected void moveRight() {
-		int oldX;	//Ä³¸ö¸ñ×ÓÓÒÒÆÇ°µÄºá×ø±ê
-		int newX;	//Ä³¸ö¸ñ×ÓÓÒÒÆºóµÄºá×ø±ê
+		int oldX;	//Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
+		int newX;	//Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½
 		
-		/* ËùÓÐ¸ñ×ÓÓÒÒÆ */
+		/* ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 		for(int i = 0; i < cells.length; i ++) {
 			oldX = cells[i].getX();
 			newX = oldX + 1;
@@ -104,38 +106,38 @@ public class Tetromino {
 	}
 	
 	/**
-	 * ·µ»ØËÄ¸ñ·½¿éµÄ¸ñ×ÓµÄ¼¯ºÏ
-	 * @return CellµÄ¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ñ·½¿ï¿½Ä¸ï¿½ï¿½ÓµÄ¼ï¿½ï¿½ï¿½
+	 * @return Cellï¿½Ä¼ï¿½ï¿½ï¿½
 	 */
 	protected Cell[] getCells() {
 		return cells;
 	}
 	
 	/**
-	 * »ñÈ¡Ðý×ªÖá
-	 * @return Ðý×ªÖá
+	 * ï¿½ï¿½È¡ï¿½ï¿½×ªï¿½ï¿½
+	 * @return ï¿½ï¿½×ªï¿½ï¿½
 	 */
 	protected Cell getAxis() {
 		return axis;
 	}
 	
 	/**
-	 * »ñÈ¡ÐèÒªÐý×ªµÄÄ¿±ê¸ñ×ÓµÄ¼¯ºÏ
-	 * @return Ä¿±ê¸ñ×ÓµÄ¼¯ºÏ
+	 * ï¿½ï¿½È¡ï¿½ï¿½Òªï¿½ï¿½×ªï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ÓµÄ¼ï¿½ï¿½ï¿½
+	 * @return Ä¿ï¿½ï¿½ï¿½ï¿½ÓµÄ¼ï¿½ï¿½ï¿½
 	 */
 	protected Cell[] getRotateCells() {
 		return rotateCells;
 	}
 	
 	/**
-	 * °Ñcells[0]ÉèÖÃÎªÐý×ªÖá
+	 * ï¿½ï¿½cells[0]ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½×ªï¿½ï¿½
 	 */
 	protected void setAxis() {
 		axis = cells[0];
 	}
 	
 	/**
-	 * ÐÂ½¨³¤¶ÈÎª3µÄÊý×é²¢°Ñcells[1]¡¢cells[2]¡¢cells[3]Ìí¼Óµ½rotateCellsÖÐ
+	 * ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½Îª3ï¿½ï¿½ï¿½ï¿½ï¿½é²¢ï¿½ï¿½cells[1]ï¿½ï¿½cells[2]ï¿½ï¿½cells[3]ï¿½ï¿½Óµï¿½rotateCellsï¿½ï¿½
 	 */
 	protected void setRotateCells() {
 		rotateCells = new Cell[]{cells[1], cells[2], cells[3]};
